@@ -1,0 +1,517 @@
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Faith Montessori - Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f6fb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+            color: #172033;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1100px;
+            min-height: 680px;
+            background: white;
+            border-radius: 25px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 45% 55%;
+            box-shadow: 0 34px 74px rgba(24, 38, 70, 0.12);
+        }
+
+        .welcome-section {
+            background: linear-gradient(145deg, #172554, #3730a3);
+            color: white;
+            padding: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-section::before {
+            content: "";
+            position: absolute;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.06);
+            top: -100px;
+            right: -100px;
+        }
+
+        .welcome-section::after {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            bottom: -80px;
+            left: -70px;
+        }
+
+        .school-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 22px;
+            background: white;
+            color: #3730a3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-section h1 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-section h1 span {
+            color: #93c5fd;
+        }
+
+        .welcome-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #dbeafe;
+            max-width: 390px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .features {
+            margin-top: 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 18px;
+            font-size: 15px;
+            color:ffffff;
+        }
+
+        .check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #93c5fd;
+            font-weight: bold;
+        }
+
+        .login-section {
+            padding: 65px 70px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-section h2 {
+            font-size: 34px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .login-subtitle {
+            color: #6b7280;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 9px;
+            color: #374151;
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-wrapper input {
+            width: 100%;
+            height: 58px;
+            border: 1px solid #d9deea;
+            border-radius: 12px;
+            padding: 0 18px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+            background: #fafbfe;
+        }
+
+        .input-wrapper input:focus {
+            border-color: #4f46e5;
+            background: white;
+            box-shadow: 0 0 0 4px rgba(79,70,229,0.08);
+        }
+
+        .password-input {
+            padding-right: 55px !important;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 17px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 19px;
+            color: #6b7280;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5px 0 28px;
+            font-size: 14px;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #6b7280;
+        }
+
+        .remember input {
+            accent-color: #4f46e5;
+        }
+
+        .forgot {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 58px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #4f46e5, #6366f1);
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 10px 25px rgba(79,70,229,0.2);
+        }
+
+        .login-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(79,70,229,0.28);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 35px;
+            font-size: 13px;
+            color: #9ca3af;
+        }
+
+        @media (max-width: 800px) {
+
+            .container {
+                grid-template-columns: 1fr;
+                max-width: 550px;
+            }
+
+            .welcome-section {
+                padding: 40px;
+                min-height: 350px;
+            }
+
+            .welcome-section h1 {
+                font-size: 34px;
+            }
+
+            .features {
+                display: none;
+            }
+
+            .login-section {
+                padding: 45px 40px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            body {
+                padding: 15px;
+            }
+
+            .container {
+                border-radius: 18px;
+            }
+
+            .welcome-section {
+                padding: 35px 28px;
+                min-height: 300px;
+            }
+
+            .school-icon {
+                width: 65px;
+                height: 65px;
+                border-radius: 16px;
+                font-size: 24px;
+                margin-bottom: 25px;
+            }
+
+            .welcome-section h1 {
+                font-size: 29px;
+            }
+
+            .welcome-section p {
+                font-size: 15px;
+            }
+
+            .login-section {
+                padding: 35px 25px;
+            }
+
+            .login-section h2 {
+                font-size: 28px;
+            }
+
+            .login-subtitle {
+                font-size: 14px;
+                margin-bottom: 30px;
+            }
+
+            .options {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT SECTION -->
+        <section class="welcome-section">
+
+            <div class="school-icon">
+                FM
+            </div>
+
+            <h1>
+                Welcome to<br>
+                <span>Faith Montessori</span>
+            </h1>
+
+            <p>
+                A smarter way to manage your school activities,
+                academics, students, teachers and daily operations.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <div class="check">✓</div>
+                    Student Management
+                </div>
+
+                <div class="feature">
+                    <div class="check">✓</div>
+                    Academic Records
+                </div>
+
+                <div class="feature">
+                    <div class="check">✓</div>
+                    School Administration
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOGIN SECTION -->
+        <section class="login-section">
+
+            <h2>Sign in</h2>
+
+            <p class="login-subtitle">
+                Enter your details to access your account.
+            </p>
+
+
+            <!-- ID NUMBER -->
+            <div class="form-group">
+
+                <label for="studentId">
+                    ID Number
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="text"
+                        id="studentId"
+                        placeholder="Enter your ID number"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="password"
+                        id="password"
+                        class="password-input"
+                        placeholder="Enter your password"
+                    >
+
+                    <button
+                        type="button"
+                        class="toggle-password"
+                        onclick="togglePassword()"
+                        id="eyeButton">
+                        👁
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- OPTIONS -->
+            <div class="options">
+
+                <label class="remember">
+                    <input type="checkbox">
+                    Remember me
+                </label>
+
+                <a href="#" class="forgot">
+                    Forgot password?
+                </a>
+
+            </div>
+
+
+            <!-- SIGN IN -->
+            <button
+                class="login-button"
+                onclick="login()">
+                Sign In
+            </button>
+
+
+            <p class="footer-text">
+                © 2026 Faith Montessori · School Management System
+            </p>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        function togglePassword() {
+
+            const password =
+                document.getElementById("password");
+
+            const eyeButton =
+                document.getElementById("eyeButton");
+
+            if (password.type === "password") {
+
+                password.type = "text";
+                eyeButton.textContent = "🙈";
+
+            } else {
+
+                password.type = "password";
+                eyeButton.textContent = "👁";
+
+            }
+        }
+
+
+        function login() {
+
+            const studentId =
+                document.getElementById("studentId").value.trim();
+
+            const password =
+                document.getElementById("password").value;
+
+            if (studentId === "" || password === "") {
+
+                alert("Please enter your ID number and password.");
+
+                return;
+            }
+
+            alert("Login successful!");
+
+        }
+
+    </script>
+
+</body>
+</html>
